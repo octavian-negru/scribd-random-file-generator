@@ -3,6 +3,7 @@ from copy import deepcopy
 import random
 import string
 
+# Generates a random file of random size, with random content, grouped by random words of random length.
 
 def random_string(stringLength=200):
     letters = string.ascii_lowercase
@@ -19,11 +20,11 @@ def wordify(input):
 
 
 def write_to_file(file_length):
-    FILE_NAME = random_string(20)
+    file_name = random_string(20)
     for line in range(file_length):
-        with open(os.path.join(os.getcwd(), FILE_NAME + '.txt'), 'a') as my_random_file:
+        with open(os.path.join(os.getcwd(), file_name + '.txt'), 'a') as my_random_file:
             my_random_file.write(wordify(random_string()) + os.linesep)
-            
+
 
 if __name__ == '__main__':
     write_to_file(random.randint(0, 3000))
