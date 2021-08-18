@@ -9,7 +9,7 @@ Oftentimes, the files are already present in Scribd.
 
 The workaround is to generate random files which trick the Scribd control.
 
-This project solves the Scribd control, allowing you to upload dummy files, in order to download wanted files.
+This project gets past the Scribd control, allowing you to upload dummy files, in order to download wanted files.
 
 
 ## How to run
