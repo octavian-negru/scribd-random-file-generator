@@ -7,7 +7,7 @@ Whenever you want to download something from Scribd and you use a free Scribd ac
 
 Oftentimes, the files are already present in Scribd.
 
-The workaround is to generate random files which trick the Scribd control.
+The workaround is to generate random files which tricks the Scribd control.
 
 This project gets past the Scribd control, allowing you to upload dummy files, in order to download wanted files.
 
