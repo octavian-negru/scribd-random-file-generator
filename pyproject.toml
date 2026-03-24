@@ -1,0 +1,7 @@
+[project]
+name = "scribd-random-file-generator"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "reportlab>=4.4.10",
+]

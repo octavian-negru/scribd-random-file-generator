@@ -14,7 +14,33 @@ This project gets past the Scribd control, allowing you to upload dummy files, i
 
 ## How to run
 
-Install [Python](https://www.python.org/downloads/)
-Run the script, as explained [here](https://realpython.com/run-python-scripts/#using-the-python-command)
+### Prerequisites
+
+- [uv](https://docs.astral.sh/uv/getting-started/installation/) — Python package manager
+- [just](https://just.systems/man/en/packages.html) — command runner
+
+### Quickstart
+
+```sh
+just
+```
+
+This installs dependencies and runs the script in one step.
+
+### Manual steps
+
+Install dependencies:
+
+```sh
+just install
+```
+
+Run the script:
+
+```sh
+just run
+```
+
+Five random PDF files will be generated in the current directory.
 
 ### Good luck!
