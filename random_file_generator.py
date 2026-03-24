@@ -1,30 +1,46 @@
 import os
-from copy import deepcopy
 import random
 import string
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
+from reportlab.lib.styles import getSampleStyleSheet
 
-# Generates a random file of random size, with random content, grouped by random words of random length.
-
-def random_string(stringLength=200):
+# Generates a random string
+def random_string(length=200):
     letters = string.ascii_lowercase
-    return ''.join(random.choice(letters) for i in range(stringLength))
+    return ''.join(random.choice(letters) for _ in range(length))
 
+# Adds random spaces to simulate words
+def wordify(input_text):
+    output = input_text
+    iter_factor = int(len(input_text) / 10)
 
-def wordify(input):
-    output = deepcopy(input)
-    iter_factor = int(len(input) / 10)
     for _ in range(iter_factor):
         rand_index = random.randint(0, len(output) - 1)
         output = output[:rand_index] + ' ' + output[rand_index:]
+
     return output
 
+# Create a single PDF file with random content
+def create_pdf(file_length):
+    file_name = random_string(12) + ".pdf"
+    file_path = os.path.join(os.getcwd(), file_name)
 
-def write_to_file(file_length):
-    file_name = random_string(20)
-    for line in range(file_length):
-        with open(os.path.join(os.getcwd(), file_name + '.txt'), 'a') as my_random_file:
-            my_random_file.write(wordify(random_string()) + os.linesep)
+    styles = getSampleStyleSheet()
+    story = []
 
+    for _ in range(file_length):
+        text = wordify(random_string())
+        story.append(Paragraph(text, styles["Normal"]))
+        story.append(Spacer(1, 12))
 
-if __name__ == '__main__':
-    write_to_file(random.randint(0, 3000))
+    pdf = SimpleDocTemplate(file_path)
+    pdf.build(story)
+
+# Generate exactly 5 random PDF files
+def generate_files():
+    for _ in range(5):
+        file_length = random.randint(10, 200)
+        create_pdf(file_length)
+
+if __name__ == "__main__":
+    generate_files()
