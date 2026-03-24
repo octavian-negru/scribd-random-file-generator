@@ -41,6 +41,6 @@ Run the script:
 just run
 ```
 
-Five random PDF files will be generated in the current directory.
+Five random PDF files will be generated in the `generated` directory.
 
 ### Good luck!

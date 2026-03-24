@@ -22,8 +22,10 @@ def wordify(input_text):
 
 # Create a single PDF file with random content
 def create_pdf(file_length):
+    output_dir = os.path.join(os.getcwd(), "generated")
+    os.makedirs(output_dir, exist_ok=True)
     file_name = random_string(12) + ".pdf"
-    file_path = os.path.join(os.getcwd(), file_name)
+    file_path = os.path.join(output_dir, file_name)
 
     styles = getSampleStyleSheet()
     story = []
